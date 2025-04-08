@@ -1,0 +1,29 @@
+@import 'tailwindcss';
+
+@theme {
+  /*--------
+      COLORS
+      primary : neutral-800
+      secondary: stone-100
+      accent: violet-300
+      bonus: gray-400
+
+    --------*/
+  --color-blue-50: #dfdff0;
+  --color-blue-75: #dfdff2;
+  --color-blue-100: #f0f2fa;
+  --color-blue-200: #010101;
+  --color-blue-300: #4fb7dd;
+  --color-violet-300: #5724ff;
+  --color-yellow-100: #8e983f;
+  --color-yellow-300: #edff66;
+  /*--------
+    FONT-FAMILY
+    --------*/
+  --font-zentry: 'Zentry', sans-serif;
+  --font-anton: 'anton', sans-serif;
+  --font-general: 'general', sans-serif;
+  --font-circular-web: 'circular-web', sans-serif;
+  --font-robert-medium: 'robert-medium', sans-serif;
+  --font-robert-regular: 'robert-regular', sans-serif;
+}
