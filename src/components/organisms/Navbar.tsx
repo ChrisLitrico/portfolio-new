@@ -63,6 +63,7 @@ const Navbar = () => {
           <div className="flex items-center gap-7">
             <img src="/img/logo.png" alt="logo" className="w-10" />
             <CustomButton
+              variant="primary"
               id="product-button"
               title="download cv"
               leftIcon={<GrDocumentDownload />}

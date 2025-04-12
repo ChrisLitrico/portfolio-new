@@ -1,14 +1,12 @@
-
-import { gsap } from "gsap";
-import { useEffect, useRef } from "react";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
-import clsx from "clsx";
-
+import { gsap } from 'gsap';
+import { useEffect, useRef } from 'react';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import clsx from 'clsx';
 
 type AnimatedTitle = {
   title: string;
   containerClass: string;
-}
+};
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -20,21 +18,21 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitle) => {
       const titleAnimation = gsap.timeline({
         scrollTrigger: {
           trigger: containerRef.current,
-          start: "100 bottom",
-          end: "center bottom",
-          toggleActions: "play none none reverse",
+          start: '100 bottom',
+          end: 'center bottom',
+          toggleActions: 'play none none reverse',
         },
       });
 
       titleAnimation.to(
-        ".animated-word",
+        '.animated-word',
         {
           opacity: 1,
-          transform: "translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)",
-          ease: "power2.inOut",
+          transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
+          ease: 'power2.inOut',
           stagger: 0.02,
         },
-        0
+        0,
       );
     }, containerRef);
 
@@ -42,13 +40,13 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitle) => {
   }, []);
 
   return (
-    <div ref={containerRef} className={clsx("animated-title", containerClass)}>
-      {title.split("<br />").map((line, index) => (
+    <div ref={containerRef} className={clsx('animated-title', containerClass)}>
+      {title.split('<br />').map((line, index) => (
         <div
           key={index}
-          className="flex-center max-w-full flex-wrap gap-2 px-10 md:gap-3"
+          className="flex-center max-w-full flex-wrap gap-2 md:px-10 md:gap-3"
         >
-          {line.split(" ").map((word, idx) => (
+          {line.split(' ').map((word, idx) => (
             <span
               key={idx}
               className="animated-word"

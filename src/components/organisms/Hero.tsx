@@ -58,7 +58,6 @@ const Hero = () => {
     };
   }, [loading]);
 
-  // GSAP animation for the character container
   useGSAP(() => {
     if (characterContainerRef.current) {
       gsap.fromTo(
@@ -101,7 +100,10 @@ const Hero = () => {
     qualificationIcons[currentIndex % qualificationIcons.length];
 
   return (
-    <div id="hero" className="relative h-dvh w-screen overflow-x-hidden">
+    <div
+      id="hero"
+      className="relative h-dvh w-screen overflow-x-hidden bg-stone-100 pb-36"
+    >
       {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-zinc-950">
           {/* https://uiverse.io/elijahgummer/polite-earwig-72 */}
@@ -122,17 +124,19 @@ const Hero = () => {
 
       <div
         id="character-frame"
-        className="relative z-10 h-dvh w-screen overflow-hidden rounded-[100%] bg-neutral-800"
+        className="relative z-10 h-dvh w-full pt-12 overflow-hidden rounded-[100%] bg-neutral-800"
       >
         {/* 3D Character Container */}
         <div
           ref={characterContainerRef}
-          className="flex object-cover items-center justify-center absolute z-42 h-full w-full"
+          className="absolute size-full flex items-center md:z-42 justify-center"
         >
-          <HomeCharacter />
+          <div className={`relative scale-75 md:scale-0' : ''}`}>
+            <HomeCharacter />
+          </div>
         </div>
 
-        <h1 className="hero-heading absolute bottom-10 right-5 z-40 text-stone-100">
+        <h1 className="hero-heading absolute bottom-10 right-5 z-20 text-stone-100">
           Litrico
         </h1>
 
@@ -141,6 +145,7 @@ const Hero = () => {
             <h1 className="hero-heading text-stone-100">Christian</h1>
 
             <CustomButton
+              variant="primary"
               id="qualification"
               title={currentQualification}
               rightIcon={currentQualificationIcon}

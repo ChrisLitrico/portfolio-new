@@ -2,48 +2,97 @@ import clsx from 'clsx';
 
 type ButtonVariant = 'primary' | 'secondary';
 
-type Custombutton = {
+type BaseButtonProps = {
+  variant: ButtonVariant;
+  containerClass?: string;
+  onClick?: () => void;
+};
+
+type PrimaryButtonProps = BaseButtonProps & {
+  variant: 'primary';
   title: string;
-  id: string;
-  containerClass: string;
+  id?: string;
   cursorPointer?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
-  onClick?: () => void;
-  variant?: ButtonVariant;
 };
-const CustomButton = ({
-  title,
-  id,
-  leftIcon,
-  rightIcon,
-  containerClass,
-  cursorPointer,
-  onClick,
-  variant = 'primary',
-}: Custombutton) => {
+
+type SecondaryButtonProps = BaseButtonProps & {
+  variant: 'secondary';
+  href: string;
+  src?: string;
+  altText?: string;
+  title?: string;
+};
+
+type CustomButtonProps = PrimaryButtonProps | SecondaryButtonProps;
+
+const CustomButton = (props: CustomButtonProps) => {
   const buttonStyles = {
-    primary: 'bg-violet-50 text-neutral-800 px-6 py-4',
-    secondary: 'bg-violet-300 text-violet-50 py-2', // Different styling for secondary
+    primary: 'bg-violet-300 text-neutral-800 px-6 py-4',
+    secondary:
+      'w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300',
   };
+  if (props.variant === 'secondary') {
+    return (
+      <div>
+        <a
+          href={props.href}
+          className={clsx(
+            buttonStyles.secondary,
+            props.containerClass,
+            'block overflow-hidden',
+          )}
+          onClick={props.onClick}
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <div className="relative">
+            {props.src && (
+              <span>
+                <img
+                  src={props.src}
+                  alt={props.altText || 'Card cover image'}
+                  className="w-full h-48 mb-2 object-cover transition-transform duration-300 md:hover:scale-110"
+                  loading="lazy"
+                />
+              </span>
+            )}
+            {props.title && (
+              <div className="p-4 bg-stone-100 border-stone-100">
+                <h3
+                  className={`text-lg font-semibold rounded-md text-neutral-800 md:hover:text-violet-300 ${!props.src ? 'transition-transform duration-300 md:hover:scale-130' : ''}`}
+                >
+                  {props.title}
+                </h3>
+              </div>
+            )}
+          </div>
+        </a>
+      </div>
+    );
+  }
   return (
     <button
-      id={id}
+      id={props.id}
       className={clsx(
-        'group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full ',
-        buttonStyles[variant],
-        containerClass,
+        'group relative z-10 w-fit cursor-pointer overflow-hidden rounded-full',
+        buttonStyles.primary,
+        props.containerClass,
       )}
-      onClick={onClick}
+      onClick={props.onClick}
     >
-      {leftIcon}
+      {props.leftIcon}
       <span
-        className={`relative incline-flex overflow-hidden font-general mx-4 text-xs uppercase ${cursorPointer ? 'cursor-pointer' : ''}`}
+        className={`relative inline-flex overflow-hidden font-general mx-4 text-xs uppercase ${
+          props.cursorPointer ? 'cursor-pointer' : ''
+        }`}
       >
-        <div>{title}</div>
+        <div>{props.title}</div>
       </span>
-      {rightIcon}
+      {props.rightIcon}
     </button>
   );
 };
+
 export default CustomButton;

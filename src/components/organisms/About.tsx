@@ -36,8 +36,11 @@ const About = () => {
   });
 
   return (
-    <div id="about" className="min-h-screen w-screen">
-      <div className="relative mb-8 mt-36 flex flex-col items-center gap-5">
+    <div
+      id="about"
+      className="min-h-screen w-screen bg-gradient-to-b from-stone-100 from-0% to-neutral-800 to-100%"
+    >
+      <div className="relative mb-8 flex flex-col items-center gap-5">
         <h2 className="font-general text-sm text-neutral-800 uppercase md:text-lg">
           Welcome to my portfolio
         </h2>
@@ -47,8 +50,11 @@ const About = () => {
           containerClass="mt-5 !text-neutral-800 text-center"
         />
         <div className="about-subtext">
-          <p>Projects of my career, from frontend to data analysis</p>
-          <p>I like to combine different approach to achieve goals</p>
+          <ul className="flex flex-col text-center font-normal gap-2">
+            <li>Communications degree 🎓</li>
+            <li>Italian-Colombian 🇮🇹🇨🇴</li>
+            <li>Dog person 🐕</li>
+          </ul>
         </div>
       </div>
       <div className="h-dvh w-screen" id="clip">

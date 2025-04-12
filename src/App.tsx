@@ -2,7 +2,7 @@ import React from 'react';
 import Navbar from './components/organisms/Navbar';
 import Hero from './components/organisms/Hero';
 import About from './components/organisms/About';
-import Features from './components/molecules/Features';
+import Features from './components/organisms/Features';
 import Interests from './components/organisms/Interests';
 import Contact from './components/organisms/Contact';
 import Footer from './components/organisms/Footer';

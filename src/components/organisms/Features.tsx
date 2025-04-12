@@ -2,7 +2,7 @@ import { TiLocationArrow } from 'react-icons/ti';
 import ProjectCard from '../atoms/ProjectCard';
 import ProjectTilt from '../atoms/ProjectTilt';
 import SkillsCarousel from '../atoms/SkillsCarousel';
-import AnimatedTitle from './AnimatedTitle';
+import AnimatedTitle from '../molecules/AnimatedTitle';
 import SplineTag from '../atoms/SplineTag';
 
 const Features = () => {
@@ -75,7 +75,7 @@ const Features = () => {
               <TiLocationArrow className="m-5 scale-[5] self-end" />
             </div>
           </ProjectTilt>
-          <ProjectTilt className="project-tilt_2">
+          <ProjectTilt className="project-tilt_2 bg-neutral-100">
             <SplineTag />
           </ProjectTilt>
         </div>
