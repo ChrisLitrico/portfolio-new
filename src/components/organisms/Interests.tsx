@@ -78,7 +78,7 @@ const Interests = () => {
         </div>
 
         <div className="h-auto -mt-50 md:-mt-30">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 px-8 mx-auto max-w-6xl w-full">
             <div className=" text-center justify-center shadow-md p-4">
               <h3 className="text-2xl text-center justify-center font-bold mb-2">
                 Music

@@ -102,7 +102,7 @@ const Hero = () => {
   return (
     <div
       id="hero"
-      className="relative h-dvh w-screen overflow-x-hidden bg-stone-100 pb-36"
+      className="relative h-dvh w-screen overflow-x-hidden bg-stone-100"
     >
       {loading && (
         <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-zinc-950">
@@ -131,7 +131,7 @@ const Hero = () => {
           ref={characterContainerRef}
           className="absolute size-full flex items-center md:z-42 justify-center"
         >
-          <div className={`relative scale-75 md:scale-0' : ''}`}>
+          <div className={`relative scale-85' : ''}`}>
             <HomeCharacter />
           </div>
         </div>
