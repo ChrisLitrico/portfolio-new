@@ -6,13 +6,13 @@ type BaseButtonProps = {
   variant: ButtonVariant;
   containerClass?: string;
   onClick?: () => void;
+  id?: string;
+  cursorPointer?: boolean;
 };
 
 type PrimaryButtonProps = BaseButtonProps & {
   variant: 'primary';
   title: string;
-  id?: string;
-  cursorPointer?: boolean;
   leftIcon?: React.ReactNode;
   rightIcon?: React.ReactNode;
 };
@@ -31,7 +31,7 @@ const CustomButton = (props: CustomButtonProps) => {
   const buttonStyles = {
     primary: 'bg-violet-300 text-neutral-800 px-6 py-4',
     secondary:
-      'w-full rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300',
+      'w-full rounded-xl shadow-xl border-2 border-neutral-800 transition-shadow duration-300',
   };
   if (props.variant === 'secondary') {
     return (
@@ -59,9 +59,9 @@ const CustomButton = (props: CustomButtonProps) => {
               </span>
             )}
             {props.title && (
-              <div className="p-4 bg-stone-100 border-stone-100">
+              <div className="p-4 bg-stone-100 border-stone-100 rounded-lg">
                 <h3
-                  className={`text-lg font-semibold rounded-md text-neutral-800 md:hover:text-violet-300 ${!props.src ? 'transition-transform duration-300 md:hover:scale-130' : ''}`}
+                  className={`text-lg font-semibold text-neutral-800 md:hover:text-violet-300 ${!props.src ? 'transition-transform duration-300 md:hover:scale-130' : ''}`}
                 >
                   {props.title}
                 </h3>

@@ -75,8 +75,10 @@ const Features = () => {
               <TiLocationArrow className="m-5 scale-[5] self-end" />
             </div>
           </ProjectTilt>
-          <ProjectTilt className="project-tilt_2 bg-neutral-100">
-            <SplineTag />
+          <ProjectTilt className="project-tilt_2 absolute bg-neutral-100 w-full h-1/2 sm:size-full flex items-center justify-center">
+            <div className="relative ml-8 md:ml-4 scale-42 md:scale-125">
+              <SplineTag />
+            </div>
           </ProjectTilt>
         </div>
       </div>

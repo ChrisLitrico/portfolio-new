@@ -4,7 +4,7 @@ const Contact = () => {
   return (
     <div
       id="contacts"
-      className="my-20 min-h-auto bg-stone-100  w-screen px-10"
+      className="py-20 min-h-auto bg-stone-100  w-screen px-10"
     >
       <div className="relative rounded-lg  py-24 text-stone-100 sm:overflow-hidden">
         <div className="absolute -left-20 top-0 hidden h-full w-72 overflow-hidden sm:block lg:let-20 lg:w-96"></div>
@@ -20,9 +20,9 @@ const Contact = () => {
           <CustomButton
             id="contact-section"
             title="Contact me"
-            containerClass="mt-10 bg-violet-300 text-center justify-center"
-            cursorPointer
-            variant="primary"
+            containerClass="mt-10 px-8 text-center justify-center"
+            variant="secondary"
+            href="mailto:christianlitrico09@gmail.com"
           />
         </div>
       </div>

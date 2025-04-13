@@ -107,27 +107,27 @@ const Interests = () => {
                 about podcasts is that i can learn, laugh (or both) while
                 walking my dog. <br /> Some favorites include:
               </p>
-              <div className=" flex flex-col gap-y-2">
+              <div className=" flex flex-col">
                 <CustomButton
                   variant="secondary"
                   href="https://open.spotify.com/show/44fllCS2FTFr2x2kjP9xeT?si=ee1bfe61eba24aa7"
                   altText="Hard Fork podcast"
                   title="Hard Fork"
-                  containerClass="max-w-xs my-2"
+                  containerClass="max-w-xs py-2"
                 />
                 <CustomButton
                   variant="secondary"
                   href="https://open.spotify.com/show/6ShFMYxeDNMo15COLObDvC?si=052414490a404e9a"
                   altText="Tintoria podcast"
                   title="Tintoria"
-                  containerClass="max-w-xs my-2"
+                  containerClass="max-w-xs py-2"
                 />
                 <CustomButton
                   variant="secondary"
                   href="https://open.spotify.com/show/4MU3RFGELZxPT9XHVwTNPR?si=e2a0794c83004ac2"
                   altText="Pivot podcast"
                   title="Pivot"
-                  containerClass="max-w-xs my-2"
+                  containerClass="max-w-xs py-2"
                 />
               </div>
             </div>
