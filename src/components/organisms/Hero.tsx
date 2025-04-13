@@ -131,7 +131,7 @@ const Hero = () => {
           ref={characterContainerRef}
           className="absolute size-full flex items-center md:z-42 justify-center"
         >
-          <div className={`relative scale-85' : ''}`}>
+          <div className="relative scale-85">
             <HomeCharacter />
           </div>
         </div>
