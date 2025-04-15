@@ -53,6 +53,31 @@ const Navbar = () => {
     }
   }, [isAudioPlaying]);
 
+  const handleDownloadCV = async () => {
+    try {
+      const response = await fetch(
+        '/documents/curriculum_christian_litrico.pdf',
+      );
+      if (!response.ok) {
+        throw new Error('Failed to download CV');
+      }
+
+      const blob = await response.blob();
+      const url = window.URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = 'ChristianLitrico-CV.pdf';
+
+      document.body.appendChild(link);
+      link.click();
+
+      document.body.removeChild(link);
+      window.URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error('Error downloading CV:', error);
+    }
+  };
+
   return (
     <div
       ref={navContainerRef}
@@ -68,6 +93,7 @@ const Navbar = () => {
               title="download cv"
               leftIcon={<GrDocumentDownload />}
               containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              onClick={handleDownloadCV}
             />
           </div>
           <div className="flex h-full items-center">

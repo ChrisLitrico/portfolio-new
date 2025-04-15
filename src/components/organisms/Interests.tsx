@@ -67,9 +67,9 @@ const Interests = () => {
                   onMouseUp={handleMouseLeave}
                   onMouseEnter={handleMouseLeave}
                   onMouseMove={handleMouseMove}
-                  src="/img/entrance.JPG"
+                  src="/img/entrance.png"
                   alt="interests"
-                  className="object-contain"
+                  className="object-contain scale-85 md:scale-100"
                 />
               </div>
             </div>
