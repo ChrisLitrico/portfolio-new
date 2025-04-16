@@ -12,7 +12,7 @@ const Features = () => {
         <div className="px-5 py-12 text-center">
           <AnimatedTitle title="Skills and works" containerClass="py-12" />
 
-          <p className="md:mx-32 text-start font-circular-web text-lg text-stone-100 md:text-center opacity-50">
+          <p className="md:mx-32 text-start font-poppins-light text-lg text-stone-100 md:text-center opacity-50">
             Frontend Developer with proven expertise in Vue and React, currently
             working at a cutting-edge design agency. Specialized in crafting
             intuitive interfaces that transform complex concepts into

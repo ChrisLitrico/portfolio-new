@@ -61,7 +61,7 @@ const CustomButton = (props: CustomButtonProps) => {
             {props.title && (
               <div className="p-4 bg-stone-100 border-stone-100 rounded-lg">
                 <h3
-                  className={`text-lg font-semibold text-neutral-800 md:hover:text-violet-300 ${!props.src ? 'transition-transform duration-300 md:hover:scale-130' : ''}`}
+                  className={`text-lg font-semibold text-neutral-800 link-buttons md:hover:text-violet-300 ${!props.src ? 'transition-transform duration-300 md:hover:scale-130' : ''}`}
                 >
                   {props.title}
                 </h3>
@@ -84,7 +84,7 @@ const CustomButton = (props: CustomButtonProps) => {
     >
       {props.leftIcon}
       <span
-        className={`relative inline-flex overflow-hidden font-general mx-4 text-xs uppercase ${
+        className={`relative hidden md:inline-flex overflow-hidden font-poppins mx-4 text-xs uppercase ${
           props.cursorPointer ? 'cursor-pointer' : ''
         }`}
       >

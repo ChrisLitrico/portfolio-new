@@ -3,6 +3,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useWindowScroll } from 'react-use';
 import CustomButton from '../atoms/CustomButton';
 import { GrDocumentDownload } from 'react-icons/gr';
+import { HiMenu, HiX } from 'react-icons/hi';
 
 const navItems = ['Hero', 'About', 'Projects', 'Interests', 'Contacts'];
 
@@ -11,6 +12,7 @@ const Navbar = () => {
   const [isIndicatorActive, setIsIndicatorActive] = useState(false);
   const [lastScrollY, setLastScrollY] = useState(0);
   const [isNavVisible, setIsNavVisible] = useState(true);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   const navContainerRef = useRef<HTMLDivElement>(null);
   const audioElementRef = useRef<HTMLAudioElement>(null);
@@ -85,14 +87,14 @@ const Navbar = () => {
     >
       <header className="absolute top-1/2 w-full -translate-y-1/2">
         <nav className="flex size-full items-center justify-between p-4">
-          <div className="flex items-center gap-7">
-            <img src="/img/logo.png" alt="logo" className="w-10" />
+          <div className="flex items-center gap-4 md:gap-7">
+            <img src="/img/logo.png" alt="logo" className="w-8 md:w-10" />
             <CustomButton
               variant="primary"
               id="product-button"
               title="download cv"
               leftIcon={<GrDocumentDownload />}
-              containerClass="bg-blue-50 md:flex hidden items-center justify-center gap-1"
+              containerClass="bg-blue-50 items-center justify-center md:flex gap-1 px-3 py-3 md:py-4"
               onClick={handleDownloadCV}
             />
           </div>
@@ -108,27 +110,57 @@ const Navbar = () => {
                 </a>
               ))}
             </div>
-            <button
-              className="ml-10 flex items-center space-x-0.5"
-              onClick={toggleAudioIndicator}
-            >
-              <audio
-                ref={audioElementRef}
-                className="hidden"
-                src="audio/loop.mp3"
-                loop
-              />
-
-              {[1, 2, 3, 4].map((bar) => (
-                <div
-                  key={bar}
-                  className={`indicator-line ${isIndicatorActive ? 'active' : ''}`}
-                  style={{ animationDelay: `${bar * 0.1}s` }}
+            <div className="flex items-center gap-4">
+              <button
+                className="flex md:hidden items-center -mr-12 justify-center"
+                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                aria-label="Toggle menu"
+              >
+                {isMobileMenuOpen ? (
+                  <HiX className="h-6 w-6 text-stone-100" />
+                ) : (
+                  <HiMenu className="h-6 w-6 text-stone-100" />
+                )}
+              </button>
+              <button
+                className="flex items-center ml-10 space-x-0.5 py-4"
+                onClick={toggleAudioIndicator}
+              >
+                <audio
+                  ref={audioElementRef}
+                  className="hidden"
+                  src="audio/loop.mp3"
+                  loop
                 />
-              ))}
-            </button>
+                {[1, 2, 3, 4].map((bar) => (
+                  <div
+                    key={bar}
+                    className={`indicator-line ${isIndicatorActive ? 'active' : ''}`}
+                    style={{ animationDelay: `${bar * 0.1}s` }}
+                  />
+                ))}
+              </button>
+            </div>
           </div>
         </nav>
+        {/* Mobile Menu */}
+        <div
+          className={`absolute top-full left-0 right-0 bg-neutral-800 transition-all duration-300 border-t border
+           ${isMobileMenuOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-2 pointer-events-none'}`}
+        >
+          <div className="p-4 flex flex-col space-y-4">
+            {navItems.map((item) => (
+              <a
+                key={item}
+                href={`#${item.toLowerCase()}`}
+                className="text-stone-100 text-sm uppercase"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                {item}
+              </a>
+            ))}
+          </div>
+        </div>
       </header>
     </div>
   );

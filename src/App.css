@@ -20,10 +20,7 @@
   /*--------
     FONT-FAMILY
     --------*/
-  --font-zentry: 'Zentry', sans-serif;
   --font-anton: 'anton', sans-serif;
-  --font-general: 'general', sans-serif;
-  --font-circular-web: 'circular-web', sans-serif;
-  --font-robert-medium: 'robert-medium', sans-serif;
-  --font-robert-regular: 'robert-regular', sans-serif;
+  --font-poppins-light: 'poppins-light', sans-serif;
+  --font-roboto: 'roboto', sans-serif;
 }

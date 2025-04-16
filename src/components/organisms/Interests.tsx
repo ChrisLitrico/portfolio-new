@@ -107,7 +107,7 @@ const Interests = () => {
                 about podcasts is that i can learn, laugh (or both) while
                 walking my dog. <br /> Some favorites include:
               </p>
-              <div className=" flex flex-col">
+              <div className="flex flex-col">
                 <CustomButton
                   variant="secondary"
                   href="https://open.spotify.com/show/44fllCS2FTFr2x2kjP9xeT?si=ee1bfe61eba24aa7"
@@ -132,13 +132,13 @@ const Interests = () => {
               </div>
             </div>
             <div className=" text-center justify-center shadow-md p-4">
-              <h3 className="text-2xl text-center justify-center font-bold mb-2">
+              <h3 className="text-2xl text-center  justify-center font-bold mb-2">
                 Manga
               </h3>
               <p className="text-left py-4">
                 I have a deep appreciation for the artistry and storytelling
-                that goes into each manga page. <br /> If you don't know it yet
-                here's a masterpiece
+                that goes into each manga page. If you don't know it yet here's
+                a masterpiece
               </p>
               <CustomButton
                 variant="secondary"
