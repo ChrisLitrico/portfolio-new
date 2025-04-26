@@ -59,18 +59,27 @@ const Interests = () => {
           />
 
           <div className="story-img-container">
-            <div className="story-img-mask">
+            <div className=" story-img-mask">
               <div className="story-img-content">
-                <img
-                  ref={frameRef}
-                  onMouseLeave={handleMouseLeave}
-                  onMouseUp={handleMouseLeave}
-                  onMouseEnter={handleMouseLeave}
-                  onMouseMove={handleMouseMove}
-                  src="/img/entrance.png"
-                  alt="interests"
-                  className="object-contain scale-85 md:scale-100"
-                />
+                {window.innerWidth > 768 ? (
+                  <img
+                    ref={frameRef}
+                    onMouseLeave={handleMouseLeave}
+                    onMouseUp={handleMouseLeave}
+                    onMouseEnter={handleMouseLeave}
+                    onMouseMove={handleMouseMove}
+                    src="/img/entrance.png"
+                    alt="interests"
+                    className="object-contain scale-85 md:scale-100"
+                  />
+                ) : (
+                  <img
+                    ref={frameRef}
+                    src="/img/entrance.png"
+                    alt="interests"
+                    className="object-contain scale-85 md:scale-100"
+                  />
+                )}
               </div>
             </div>
             <RoundedCorners />

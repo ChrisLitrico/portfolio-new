@@ -1,16 +1,26 @@
-import { useRef, useState } from "react"
+import { useRef, useState, useEffect } from 'react';
 
 type ProjectTiltProps = {
-  children: any,
-  className: string
-}
+  children: any;
+  className: string;
+};
 
-export const ProjectTilt = ({ children, className = "" } : ProjectTiltProps) => {
-  const [transformStyle, setTransformStyle] = useState("");
+export const ProjectTilt = ({ children, className = '' }: ProjectTiltProps) => {
+  const [transformStyle, setTransformStyle] = useState('');
+  const [isDesktop, setIsDesktop] = useState(window.innerWidth >= 768);
   const itemRef = useRef(null);
 
-  const handleMouseMove = (e:any) => {
-    if (!itemRef.current) return;
+  useEffect(() => {
+    const handleResize = () => {
+      setIsDesktop(window.innerWidth >= 768);
+    };
+
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  const handleMouseMove = (e: any) => {
+    if (!itemRef.current || !isDesktop) return;
 
     const { left, top, width, height } =
       //@ts-ignore
@@ -27,7 +37,8 @@ export const ProjectTilt = ({ children, className = "" } : ProjectTiltProps) => 
   };
 
   const handleMouseLeave = () => {
-    setTransformStyle("");
+    if (!isDesktop) return;
+    setTransformStyle('');
   };
 
   return (
@@ -36,10 +47,10 @@ export const ProjectTilt = ({ children, className = "" } : ProjectTiltProps) => 
       className={className}
       onMouseMove={handleMouseMove}
       onMouseLeave={handleMouseLeave}
-      style={{ transform: transformStyle }}
+      style={isDesktop ? { transform: transformStyle } : {}}
     >
       {children}
     </div>
   );
 };
-export default ProjectTilt
+export default ProjectTilt;
