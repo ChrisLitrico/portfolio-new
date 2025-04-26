@@ -61,8 +61,9 @@ const Features = () => {
               type="img"
               classContainer=""
               title={<>Kaggle capstone</>}
-              description="Project for Gen-AI intensive course"
+              description="BestBuddy - pet care companion"
               stack={['python', 'pandas', 'numpy']}
+              link="https://www.kaggle.com/code/christianlitrico/bestbuddy-pet-care-companion"
             />
           </ProjectTilt>
 
