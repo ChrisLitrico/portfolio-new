@@ -1,12 +1,13 @@
 import { useState } from 'react';
-import { DiPython } from 'react-icons/di';
+import { DiGoogleAnalytics, DiPython } from 'react-icons/di';
 import { FaVuejs } from 'react-icons/fa';
 import { FaAlgolia, FaReact } from 'react-icons/fa6';
-import { RiTailwindCssFill } from 'react-icons/ri';
+import { RiGeminiFill, RiTailwindCssFill } from 'react-icons/ri';
 import {
   SiAuth0,
   SiDatocms,
   SiGraphql,
+  SiLangchain,
   SiNumpy,
   SiPandas,
   SiScikitlearn,
@@ -35,6 +36,9 @@ const ProjectStack = ({ stack }: ProjectStackProps) => {
     { name: 'graphql', icon: <SiGraphql /> },
     { name: 'auth0', icon: <SiAuth0 /> },
     { name: 'vercel', icon: <SiVercel /> },
+    { name: 'langchain', icon: <SiLangchain /> },
+    { name: 'gemini', icon: <RiGeminiFill /> },
+    { name: 'googleAnalytics', icon: <DiGoogleAnalytics /> },
   ];
 
   if (!stack || stack.length === 0) {

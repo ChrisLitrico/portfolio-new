@@ -43,6 +43,7 @@ const Projects = () => {
                 'datocms',
                 'auth0',
                 'vercel',
+                'googleAnalytics',
               ]}
             />
           </ProjectTilt>
@@ -52,7 +53,7 @@ const Projects = () => {
               type="img"
               title={<>International ecommerce</>}
               description="Notorius brand"
-              stack={['vue', 'typescript', 'algolia']}
+              stack={['vue', 'typescript', 'algolia', 'googleAnalytics']}
             />
           </ProjectTilt>
           <ProjectTilt className="project-tilt_1  md:col-span-1 me-0">
@@ -62,7 +63,7 @@ const Projects = () => {
               classContainer=""
               title={<>Kaggle capstone</>}
               description="BestBuddy - pet care companion"
-              stack={['python', 'pandas', 'numpy']}
+              stack={['python', 'pandas', 'numpy', 'langchain', 'gemini']}
               link="https://www.kaggle.com/code/christianlitrico/bestbuddy-pet-care-companion"
             />
           </ProjectTilt>
