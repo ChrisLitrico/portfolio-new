@@ -1,10 +1,10 @@
 import Navbar from './components/organisms/Navbar';
 import Hero from './components/organisms/Hero';
 import About from './components/organisms/About';
-import Features from './components/organisms/Features';
 import Interests from './components/organisms/Interests';
 import Contact from './components/organisms/Contact';
 import Footer from './components/organisms/Footer';
+import Projects from './components/organisms/Projects';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Navbar />
       <Hero />
       <About />
-      <Features />
+      <Projects />
       <Interests />
       <Contact />
       <Footer />

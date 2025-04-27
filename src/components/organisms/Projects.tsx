@@ -5,7 +5,7 @@ import AnimatedTitle from '../molecules/AnimatedTitle';
 import SplineTag from '../atoms/SplineTag';
 import { FaAngellist } from 'react-icons/fa6';
 
-const Features = () => {
+const Projects = () => {
   return (
     <section id="projects" className="bg-neutral-800">
       <div className="container mx-auto px-3 md:px-10">
@@ -86,4 +86,4 @@ const Features = () => {
     </section>
   );
 };
-export default Features;
+export default Projects;
