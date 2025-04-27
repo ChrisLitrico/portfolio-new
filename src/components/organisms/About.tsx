@@ -7,38 +7,40 @@ gsap.registerPlugin(ScrollTrigger);
 
 const About = () => {
   useGSAP(() => {
-    const clipAnimation = gsap.timeline({
-      scrollTrigger: {
-        trigger: '#clip',
-        start: 'center center',
-        end: '+=800 center',
-        scrub: 0.5,
-        pin: true,
-        pinSpacing: true,
-        invalidateOnRefresh: true,
-      },
-    });
+    if (window.innerWidth > 768) {
+      const clipAnimation = gsap.timeline({
+        scrollTrigger: {
+          trigger: '#clip',
+          start: 'center center',
+          end: '+=800 center',
+          scrub: 0.5,
+          pin: true,
+          pinSpacing: true,
+          invalidateOnRefresh: true,
+        },
+      });
 
-    clipAnimation.to('.mask-clip-path_2', {
-      width: window.innerWidth,
-      height: window.innerHeight,
-      borderRadius: 0,
-    });
-    window.addEventListener('resize', () => {
-      ScrollTrigger.refresh();
-    });
-
-    return () => {
-      window.removeEventListener('resize', () => {
+      clipAnimation.to('.mask-clip-path_2', {
+        width: window.innerWidth,
+        height: window.innerHeight,
+        borderRadius: 0,
+      });
+      window.addEventListener('resize', () => {
         ScrollTrigger.refresh();
       });
-    };
+
+      return () => {
+        window.removeEventListener('resize', () => {
+          ScrollTrigger.refresh();
+        });
+      };
+    }
   });
 
   return (
     <div
       id="about"
-      className="min-h-screen w-screen bg-gradient-to-b from-stone-100 from-0% to-neutral-800 to-100%"
+      className="min-h-screen w-screen bg-gradient-to-b from-stone-100 from-0% via-stone-100 via-60% to-neutral-800 to-100%"
     >
       <div className="relative mb-8 flex flex-col items-center gap-5">
         <h2 className="font-poppins text-sm text-neutral-800 uppercase md:text-lg">
@@ -50,8 +52,11 @@ const About = () => {
           containerClass="mt-5 !text-neutral-800 text-center"
         />
         <div className="about-subtext">
-          <blockquote className="italic text-left mx-auto w-3/4 font-normal">
+          <blockquote className="italic text-sm md:text-lg text-left mx-auto w-3/4 font-normal">
             "Treat people as ends in themselves, not as means to an end."
+          </blockquote>
+          <blockquote className="italic text-sm md:text-lg text-right mx-auto w-3/4 font-normal">
+            -Immanuel Kant
           </blockquote>
         </div>
       </div>
