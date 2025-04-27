@@ -2,13 +2,11 @@ import { FaGithub, FaKaggle, FaLinkedinIn } from 'react-icons/fa6';
 
 const Footer = () => {
   const links = [
+    { href: 'https://www.kaggle.com/christianlitrico', icon: <FaKaggle /> },
     {
       href: 'https://www.linkedin.com/in/christianlitrico/',
       icon: <FaLinkedinIn />,
     },
-
-    { href: 'https://www.kaggle.com/christianlitrico', icon: <FaKaggle /> },
-
     { href: 'https://github.com/ChrisLitrico', icon: <FaGithub /> },
   ];
 

@@ -53,7 +53,7 @@ const CustomButton = (props: CustomButtonProps) => {
                 <img
                   src={props.src}
                   alt={props.altText || 'Card cover image'}
-                  className="w-full h-48 mb-2 object-cover transition-transform duration-300 md:hover:scale-110"
+                  className="w-full h-48 mb-2 object-cover md:transition-transform md:duration-300 md:hover:scale-110"
                   loading="lazy"
                 />
               </span>

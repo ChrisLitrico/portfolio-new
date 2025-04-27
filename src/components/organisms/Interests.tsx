@@ -70,14 +70,14 @@ const Interests = () => {
                     onMouseMove={handleMouseMove}
                     src="/img/entrance.png"
                     alt="interests"
-                    className="object-contain scale-85 md:scale-100"
+                    className="object-contain size-full md:size-auto"
                   />
                 ) : (
                   <img
                     ref={frameRef}
                     src="/img/entrance.png"
                     alt="interests"
-                    className="object-contain scale-85 md:scale-100"
+                    className="object-contain size-full md:size-auto"
                   />
                 )}
               </div>
