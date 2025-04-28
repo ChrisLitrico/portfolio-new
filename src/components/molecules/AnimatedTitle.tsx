@@ -14,29 +14,48 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitle) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    const ctx = gsap.context(() => {
-      const titleAnimation = gsap.timeline({
-        scrollTrigger: {
-          trigger: containerRef.current,
-          start: '100 bottom',
-          end: 'center bottom',
-          toggleActions: 'play none none reverse',
-        },
+    // Initial setup for mobile - set elements to their final state
+    gsap.set('.animated-word', {
+      opacity: 1,
+      transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
+    });
+
+    // Create animation only for desktop (min-width: 768px)
+    const mm = gsap.matchMedia();
+    
+    mm.add("(min-width: 768px)", () => {
+      // Reset the initial state for desktop
+      gsap.set('.animated-word', {
+        opacity: 0,
+        transform: 'translate3d(0, 50px, 0) rotateY(10deg) rotateX(-90deg)',
       });
 
-      titleAnimation.to(
-        '.animated-word',
-        {
-          opacity: 1,
-          transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
-          ease: 'power2.inOut',
-          stagger: 0.02,
-        },
-        0,
-      );
-    }, containerRef);
+      const ctx = gsap.context(() => {
+        const titleAnimation = gsap.timeline({
+          scrollTrigger: {
+            trigger: containerRef.current,
+            start: '100 bottom',
+            end: 'center bottom',
+            toggleActions: 'play none none reverse',
+          },
+        });
 
-    return () => ctx.revert(); // Clean up on unmount
+        titleAnimation.to(
+          '.animated-word',
+          {
+            opacity: 1,
+            transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
+            ease: 'power2.inOut',
+            stagger: 0.02,
+          },
+          0,
+        );
+      }, containerRef);
+
+      return () => ctx.revert();
+    });
+
+    return () => mm.revert();
   }, []);
 
   return (
