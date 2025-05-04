@@ -14,20 +14,17 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitle) => {
   const containerRef = useRef(null);
 
   useEffect(() => {
-    // Initial setup for mobile - set elements to their final state
     gsap.set('.animated-word', {
       opacity: 1,
       transform: 'translate3d(0, 0, 0) rotateY(0deg) rotateX(0deg)',
     });
 
-    // Create animation only for desktop (min-width: 768px)
-    const mm = gsap.matchMedia();
-    
-    mm.add("(min-width: 768px)", () => {
-      // Reset the initial state for desktop
+    const mdViewPort = gsap.matchMedia();
+
+    mdViewPort.add('(min-width: 768px)', () => {
       gsap.set('.animated-word', {
         opacity: 0,
-        transform: 'translate3d(0, 50px, 0) rotateY(10deg) rotateX(-90deg)',
+        transform: 'translate3d(0, 50px, 0) rotateY(80deg) rotateX(-90deg)',
       });
 
       const ctx = gsap.context(() => {
@@ -55,7 +52,7 @@ const AnimatedTitle = ({ title, containerClass }: AnimatedTitle) => {
       return () => ctx.revert();
     });
 
-    return () => mm.revert();
+    return () => mdViewPort.revert();
   }, []);
 
   return (

@@ -21,12 +21,12 @@ const faces = rawFaces.map((face, index, arr) => ({
 
 const SkillCarouselAtom = () => {
   const [translateZ, setTranslateZ] = useState(
-    window.innerWidth < 730 ? 220 : 300,
+    window.innerWidth < 730 ? 200 : 240,
   );
 
   useEffect(() => {
     const handleResize = () => {
-      setTranslateZ(window.innerWidth < 730 ? 140 : 240);
+      setTranslateZ(window.innerWidth < 730 ? 140 : 220);
     };
 
     window.addEventListener('resize', handleResize);
@@ -40,13 +40,13 @@ const SkillCarouselAtom = () => {
       <style>{`
         @keyframes rotate360 {
           from { transform: rotateY(0deg); }
-          to { transform: rotateY(-360deg); }
+          to { transform: rotateY(-540deg); }
         }
 
         .carousel-image {
           background-size: 60px 60px;
-          width: 60px;
-          height: 60px;
+          width: 80px;
+          height: 80px;
         }
 
         @media (min-width: 768px) {
