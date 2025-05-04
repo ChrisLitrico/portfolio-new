@@ -1,8 +1,12 @@
 import Spline from '@splinetool/react-spline';
 
-const HomeCharacter = () => {
+const HomeCharacter = ({ onLoad }: { onLoad: () => void }) => {
   return (
-    <Spline scene="https://prod.spline.design/YQODGvnoEkdfOUfs/scene.splinecode" />
+    <Spline 
+      scene="https://prod.spline.design/YQODGvnoEkdfOUfs/scene.splinecode"
+      onLoad={onLoad}
+    />
   );
 };
+
 export default HomeCharacter;

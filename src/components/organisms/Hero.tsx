@@ -4,7 +4,7 @@ import { ScrollTrigger } from 'gsap/all';
 import { useEffect, useRef, useState } from 'react';
 
 import CustomButton from '../atoms/CustomButton';
-import HomeCharacter from '../atoms/HomeCharacter'; // Imported your 3D character component
+import HomeCharacter from '../atoms/HomeCharacter';
 import { FaCode, FaHeart } from 'react-icons/fa';
 import { FaBrain } from 'react-icons/fa6';
 
@@ -46,7 +46,6 @@ const Hero = () => {
   };
 
   useEffect(() => {
-    // Start the timer once component is mounted and loading is complete
     if (!loading) {
       startTimer();
     }
@@ -58,20 +57,14 @@ const Hero = () => {
     };
   }, [loading]);
 
-  useGSAP(() => {
-    if (characterContainerRef.current) {
-      gsap.fromTo(
-        characterContainerRef.current,
-        { opacity: 0, scale: 0.8 },
-        {
-          opacity: 1,
-          scale: 1,
-          duration: 1.5,
-          ease: 'power1.inOut',
-          onComplete: handleCharacterLoaded,
-        },
-      );
-    }
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      if (characterContainerRef.current) {
+        characterContainerRef.current.style.opacity = '1';
+      }
+    }, 100);
+
+    return () => clearTimeout(timer);
   }, []);
 
   // GSAP animation for the clip path effect
@@ -126,14 +119,28 @@ const Hero = () => {
         id="character-frame"
         className="relative z-10 h-dvh w-full pt-12 overflow-hidden rounded-[100%] bg-neutral-800"
       >
-        {/* 3D Character Container */}
+        {/* Video/Character Container */}
         <div
           ref={characterContainerRef}
-          className="absolute size-full flex items-center md:z-42 justify-center"
+          className="absolute size-full flex items-center md:z-42 justify-center opacity-0 transition-opacity duration-500"
         >
-          <div className="relative scale-95">
-            <HomeCharacter />
-          </div>
+          {typeof window !== 'undefined' && window.innerWidth > 730 ? (
+            <div className="relative scale-95">
+              <HomeCharacter onLoad={handleCharacterLoaded} />
+            </div>
+          ) : (
+            <div className="relative w-full h-full flex justify-center items-center">
+              <video
+                className="w-full h-full object-cover"
+                src="/videos/hero.mp4"
+                loop
+                muted
+                autoPlay
+                playsInline
+                onLoadedData={handleCharacterLoaded}
+              />
+            </div>
+          )}
         </div>
 
         <h1 className="hero-heading absolute bottom-10 right-5 z-20 text-stone-100">
