@@ -131,7 +131,7 @@ const Hero = () => {
           ) : (
             <div className="relative w-full h-full flex justify-center items-center">
               <video
-                className="w-full h-full object-cover"
+                className="w-full h-full"
                 src="/videos/hero.mp4"
                 loop
                 muted
