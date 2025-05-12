@@ -53,7 +53,6 @@ const Projects = () => {
               src="img/project-2.png"
               type="img"
               title={<>Mono</>}
-              description="Showcase site"
               classContainer="object-top lg:object-scale-down bg-[#171717]"
               stack={['vue', 'typescript', 'strapi', 'googleAnalytics']}
             />

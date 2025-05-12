@@ -4,7 +4,7 @@ type ProjectCardProps = {
   src: string;
   type: 'video' | 'img';
   title: any;
-  description: string;
+  description?: string;
   classContainer?: string;
   stack?: string[];
   link?: string;
