@@ -35,6 +35,7 @@ const Projects = () => {
               type="video"
               title={<>bdibimbi</>}
               description="Ecommerce for kids"
+              classContainer="object-cover"
               stack={[
                 'vue',
                 'typescript',
@@ -51,9 +52,9 @@ const Projects = () => {
             <ProjectCard
               src="img/project-2.png"
               type="img"
-              title={<>International ecommerce</>}
-              description="Notorius brand"
-              stack={['vue', 'typescript', 'algolia', 'googleAnalytics']}
+              title={<>Mono</>}
+              description="Showcase site"
+              stack={['vue', 'typescript', 'strapi', 'googleAnalytics']}
             />
           </ProjectTilt>
           <ProjectTilt className="project-tilt_1  md:col-span-1 me-0">

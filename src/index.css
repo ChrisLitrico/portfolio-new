@@ -58,15 +58,15 @@
 
   .about-subtext {
     font-family: 'poppins-light';
-    @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center  text-lg md:max-w-[34rem];
+    @apply absolute bottom-[-80dvh] left-1/2 w-full max-w-96 -translate-x-1/2 text-center  text-lg lg:max-w-[34rem];
   }
 
   .about-image {
-    @apply relative md:absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl md:w-[30vw];
+    @apply relative lg:absolute left-1/2 top-0 z-20 h-[60vh] w-96 origin-center -translate-x-1/2 overflow-hidden rounded-3xl lg:w-[30vw];
   }
 
   .animated-title {
-    @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-stone-100 sm:px-32 md:text-[6rem];
+    @apply flex flex-col gap-1 text-7xl uppercase leading-[.8] text-stone-100 sm:px-32 lg:text-[6rem];
   }
 
   .animated-word {
@@ -78,7 +78,7 @@
   }
 
   .project-tilt_1 {
-    @apply relative border border-white/20 col-span-4 md:col-span-2 overflow-hidden rounded-md;
+    @apply relative border border-white/20 col-span-4 lg:col-span-2 overflow-hidden rounded-md;
     will-change: transform;
   }
 
@@ -89,7 +89,7 @@
 
   .project-title {
     font-family: 'anton';
-    @apply uppercase md:text-6xl text-4xl;
+    @apply uppercase lg:text-6xl text-4xl;
   }
 
   .link-buttons {
@@ -97,17 +97,17 @@
   }
 
   .story-img-container {
-    @apply relative md:h-dvh h-[90vh] w-full;
+    @apply relative lg:h-dvh h-[90vh] w-full;
     filter: url('#flt_tag');
   }
 
   .story-img-mask {
-    @apply absolute left-0 top-0 size-full overflow-hidden md:left-[20%] md:top-[-10%] md:size-4/5;
+    @apply absolute left-0 top-0 size-full overflow-hidden lg:left-[20%] lg:top-[-10%] lg:size-4/5;
     clip-path: polygon(4% 0, 83% 21%, 100% 73%, 0% 100%);
   }
 
   .story-img-content {
-    @apply absolute w-full md:h-dvh h-[50dvh] opacity-100 left-10 top-16 md:left-0 md:top-10 lg:left-[-300px] lg:top-[-100px];
+    @apply absolute w-full lg:h-dvh h-[50dvh] opacity-100 left-10 top-16  lg:top-10 lg:left-[-300px]
     transform: translate3d(0, 0, 0) rotateX(0) rotateY(0) rotateZ(0) scale(1);
   }
 
@@ -120,7 +120,7 @@
   }
 
   .gallery-img-4 {
-    @apply sm:size-80 md:h-auto md:w-[25rem] rounded-lg;
+    @apply sm:size-80 lg:h-auto lg:w-[25rem] rounded-lg;
   }
 
   .sword-man-clip-path {
@@ -160,66 +160,77 @@
   }
 }
 
-/* From Uiverse.io by elijahgummer */
-/* https://uiverse.io/elijahgummer/polite-earwig-72 */
-.hole {
+/* From Uiverse.io by G4b413l */
+.newtons-cradle {
+  --uib-size: 50px;
+  --uib-speed: 1.2s;
+  --uib-color: #5724ff;
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
+  width: var(--uib-size);
+  height: var(--uib-size);
 }
 
-.ring {
+.newtons-cradle__dot {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  width: 25%;
+  transform-origin: center top;
+}
+
+.newtons-cradle__dot::after {
+  content: '';
   display: block;
-  position: absolute;
-  width: 50px;
-  height: 50px;
-
-  border-radius: 140px;
-  opacity: 0;
-  animation-name: scale;
-  animation-duration: 3s;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  width: 100%;
+  height: 25%;
+  border-radius: 50%;
+  background-color: var(--uib-color);
 }
 
-.ring:nth-child(1) {
-  animation-delay: 0.3s;
+.newtons-cradle__dot:first-child {
+  animation: swing var(--uib-speed) linear infinite;
 }
 
-.ring:nth-child(2) {
-  animation-delay: 0.6s;
+.newtons-cradle__dot:last-child {
+  animation: swing2 var(--uib-speed) linear infinite;
 }
 
-.ring:nth-child(3) {
-  animation-delay: 0.9s;
+@keyframes swing {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
+
+  25% {
+    transform: rotate(70deg);
+    animation-timing-function: ease-in;
+  }
+
+  50% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
 }
 
-.ring:nth-child(4) {
-  animation-delay: 1.2s;
-}
+@keyframes swing2 {
+  0% {
+    transform: rotate(0deg);
+    animation-timing-function: linear;
+  }
 
-.ring:nth-child(5) {
-  animation-delay: 1.5s;
-}
+  50% {
+    transform: rotate(0deg);
+    animation-timing-function: ease-out;
+  }
 
-.ring:nth-child(6) {
-  animation-delay: 1.8s;
-}
-
-.ring:nth-child(7) {
-  animation-delay: 2.1s;
-}
-
-.ring:nth-child(8) {
-  animation-delay: 2.4s;
-}
-
-.ring:nth-child(9) {
-  animation-delay: 2.7s;
-}
-
-.ring:nth-child(10) {
-  animation-delay: 3s;
+  75% {
+    transform: rotate(-70deg);
+    animation-timing-function: ease-in;
+  }
 }
 
 @keyframes scale {

@@ -11,6 +11,7 @@ import {
   SiNumpy,
   SiPandas,
   SiScikitlearn,
+  SiStrapi,
   SiTypescript,
   SiVercel,
 } from 'react-icons/si';
@@ -39,6 +40,7 @@ const ProjectStack = ({ stack }: ProjectStackProps) => {
     { name: 'langchain', icon: <SiLangchain /> },
     { name: 'gemini', icon: <RiGeminiFill /> },
     { name: 'googleAnalytics', icon: <DiGoogleAnalytics /> },
+    { name: 'strapi', icon: <SiStrapi /> },
   ];
 
   if (!stack || stack.length === 0) {
