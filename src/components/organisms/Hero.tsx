@@ -99,11 +99,20 @@ const Hero = () => {
     >
       {loading && (
         // <!-- From Uiverse.io by G4b413l -->
-        <div className="newtons-cradle flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-zinc-950">
-          <div className="newtons-cradle__dot"></div>
-          <div className="newtons-cradle__dot"></div>
-          <div className="newtons-cradle__dot"></div>
-          <div className="newtons-cradle__dot"></div>
+        <div className="flex-center absolute z-[100] h-dvh w-screen overflow-hidden bg-zinc-950">
+          {/* https://uiverse.io/elijahgummer/polite-earwig-72 */}
+          <div className="hole">
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+            <i className="ring"></i>
+          </div>
         </div>
       )}
 
