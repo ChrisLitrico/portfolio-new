@@ -34,7 +34,7 @@ const Projects = () => {
               src="videos/project-1.mp4"
               type="video"
               title={<>bdibimbi</>}
-              description="Ecommerce for kids"
+              description="E-commerce"
               classContainer="object-cover"
               stack={[
                 'vue',
