@@ -46,6 +46,7 @@ const Projects = () => {
                 'vercel',
                 'googleAnalytics',
               ]}
+              link="https://shop.bdibimbi.it/"
             />
           </ProjectTilt>
           <ProjectTilt className="project-tilt_1 row-span-1 md:col-span-1 ms-0">
@@ -55,6 +56,7 @@ const Projects = () => {
               title={<>Mono</>}
               classContainer="object-top lg:object-scale-down bg-[#171717]"
               stack={['vue', 'typescript', 'strapi', 'googleAnalytics']}
+              link="https://mono.studio/"
             />
           </ProjectTilt>
           <ProjectTilt className="project-tilt_1  md:col-span-1 me-0">
